@@ -86,7 +86,6 @@ class Bot(Client):
                 yield message
                 current += 1
 
-
 app = Bot()
 app.run()
 
