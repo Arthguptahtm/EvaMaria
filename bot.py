@@ -89,3 +89,18 @@ class Bot(Client):
 
 app = Bot()
 app.run()
+
+# main.py or your bot file
+import threading
+from pyrogram import Client
+from web import app  # Import Flask app
+
+def run_web():
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
+
+# Start web server in a thread
+threading.Thread(target=run_web).start()
+
+# Your existing bot code
+bot = Client("EvaMaria", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
+bot.run()
